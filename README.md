@@ -38,10 +38,10 @@ Stakeholders in this analysis are the aspiring app developers who need data-driv
 Exploratory data analysis helped me to analyze characteristics and structure of the data, and it also often revealed issues in the dataset that needed to be addressed before further analysis. Issues might include missing or inconsistent data, errors, and outliers. Identifying these issues saved me a lot of time and effort in the later stages of analysis.
  
 
-1)HECK FOR UNIQUE APPS:-
+1. **CHECK FOR UNIQUE APPS** :
 To check if we are dealing with the same apps in both the datasets. A discrepancy could mean missing data in either of the two tables.
 
-The code:- 
+**The code:-** 
 ```
 
 Select count(DISTINCT id) as UniqueAppIDs
@@ -49,7 +49,7 @@ FROM AppleStore
 
 ```
 
-Output:- 
+**Output:-** 
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/3ed7711e-a4c9-476c-a548-5f685d5e28c7)
 
 
@@ -60,12 +60,12 @@ from appstore_description_combined
 
 ```
 
-Output:-
+**Output:-**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/e0b161d5-08dc-4962-ac21-413bfca2cbd1)
 
 There are 7197 apps in both the tables.
 
-2)CHECK FOR MISSING VALUES:-
+2)=. **CHECK FOR MISSING VALUES:**
 
 ```
 
@@ -75,7 +75,7 @@ where track_name is NULL or user_rating is NULL OR prime_genre is NULL
 
 ```
 
-Output:-
+**Output:-**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/dd42b3d3-725b-4173-9b83-0946cbf0b680)
 
 ```
@@ -86,12 +86,12 @@ where app_desc is NULL
 
 ```
 
-Output:-
+**Output:-**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/0e7d883b-099e-43b2-8a1d-df632ecb9786)
 
 There are no missing values in any of the dataset.
 
-3)FIND NUMBER OF APPS PER GENRE:-
+3. **FIND NUMBER OF APPS PER GENRE:**
 
 ```
 
@@ -102,13 +102,13 @@ order by NumApps DESC
 
 ```
 
-Output:-
+**Output:-**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/3ced97d6-4dca-41a1-8a95-8a6ab8710a65)
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/a41c3eb7-fc90-4ece-bc47-2588efe13f71)
 
 We can see that gams and Entertainment are the dominant app categorie.
 
-4)OVERVIEW OF APPS RATING 
+4. **OVERVIEW OF APPS RATING:**
 
 ```
 
@@ -120,11 +120,11 @@ from AppleStore
 
 ```
 
-Output:-
+**Output:-**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/42aaf9a5-67a6-4bae-8ead-4ddfff31526c)
 
 
-5) GET DISTRIBUTION OF APP PRICES :-
+5. **GET DISTRIBUTION OF APP PRICES :**
 
       ````
 
@@ -138,7 +138,7 @@ Order By PriceBinStart
 
 ```
 
-Output:-
+**Output:**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/c3b3a563-aa17-4dc8-86a6-6c5abf94d0b9)
 
 
