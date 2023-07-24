@@ -126,7 +126,7 @@ from AppleStore
 
 5. **GET DISTRIBUTION OF APP PRICES :**
 
-      ````
+```
 
       SELECT
 	(price/2) *2 as PriceBinStart,
@@ -142,9 +142,9 @@ Order By PriceBinStart
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/c3b3a563-aa17-4dc8-86a6-6c5abf94d0b9)
 
 
-# Finding the insights:-
+## Finding the insights:-
 
-1) DETERMINE WHETHER PAID APPS HAVE HIGHER RATINGS THAN FREE APPS
+1. **DETERMINE WHETHER PAID APPS HAVE HIGHER RATINGS THAN FREE APPS**
 
 ```
 
@@ -158,12 +158,13 @@ group by AppType
 
 ```
 
-Output:-
+**Output:-**
+
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/06ade68b-1539-4340-a723-ce8fe7622de9)
 
 We can see that on an average, the rating of paid apps os slightly higher than free apps.
 
-2)CHECK WHETHER APPS WITH MORE LANGUAGES HAVE HIGHER RATINGS 
+2. **CHECK WHETHER APPS WITH MORE LANGUAGES HAVE HIGHER RATINGS**
 
 ```
 
@@ -179,12 +180,13 @@ ORDER by Avg_Rating DESC
 
 ````
 
-Output:-
+**Output:-**
+
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/6ffb39c6-6d5e-41be-a5af-55e27db552fb)
 
 We can see that the apps with 10-30 languages have higher average user rating.
 
-3)CHECK GENRES WITH LOW RATING
+3. **CHECK GENRES WITH LOW RATING**
 
 ```
 
@@ -197,13 +199,13 @@ limit 10
 
 ```
 
-Output:-
+**Output:-**
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/5ca83ab9-2ea5-47d0-ab70-7a5398e5f38a)
 
 The top 3 categories with poor ratings are Catalogue, Finance and Books.
 This means that app developers have good opportunity to build an app in this space.
 
-4)CHECK IF THERE IS ANY RELATION BETWEEN LENGTH OF THE APP DESCRIPTION AND THE USER RATING
+4. **CHECK IF THERE IS ANY RELATION BETWEEN LENGTH OF THE APP DESCRIPTION AND THE USER RATING**
 
 ```
 
@@ -224,12 +226,13 @@ order by Avg_Rating DESC
 
 ```
 
-Output:-
+**Output:-**
+
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/096f4f7f-1e4e-4d01-9a02-dff4fa092793)
 
 We can see that the longer the description, the better is the user rating.
 
-5)CHECK TOP RATED APPS FOR EACH GENRE:-
+5. **CHECK TOP RATED APPS FOR EACH GENRE:**
 
 ```
 
@@ -250,14 +253,15 @@ FROM (
    		a.Rank = 1
 
 ```
-Output:-
+**Output:-**
+
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/7c9308b9-504a-462b-8293-d836cf398282)
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/119ddf41-6338-4551-ba42-3eca55cca1ef)
 
 Shows all the apps with highest rating in every genre. App developers can build apps like these to achieve more engagement.
 
 
-# Final Recommendations for the client:-
+## Final Recommendations for the client:-
 
 1)Users who pay for an app have higher chances of perceiving it of value, leading it to better ratings. Our client should charge a certain amount for the app.
 2)Apps supporting between 10 and 30 languages have better ratings. Our Client should choose the right languages for the app.
