@@ -116,9 +116,9 @@ We can see that gams and Entertainment are the dominant app categorie.
 
 ```
 
-SELECT min(user_rating) as MinRating,
-	     max(user_rating) as MaxRating,
-       avg(user_rating) as AvgRating
+SELECT  min(user_rating) as MinRating,
+	max(user_rating) as MaxRating,
+        avg(user_rating) as AvgRating
 from AppleStore
 
 
@@ -133,17 +133,17 @@ from AppleStore
 
 ```
 
-      SELECT
+SELECT
 	(price/2) *2 as PriceBinStart,
-    ((price/2) *2)+2 as PriceBinEnd,
-    count(*) as NumApps
+	((price/2) *2)+2 as PriceBinEnd,
+	count(*) as NumApps
 from AppleStore
 group by PriceBinStart
 Order By PriceBinStart
 
 ```
 
-**Output
+**Output:-**
 
 ![image](https://github.com/achalkamboj/AppleStore-SQL-Analysis/assets/82465596/c3b3a563-aa17-4dc8-86a6-6c5abf94d0b9)
 
@@ -155,10 +155,10 @@ Order By PriceBinStart
 ```
 
 SELECT CASE
-			WHEN price > 0 then 'paid'
+	    WHEN price > 0 then 'paid'
             else 'Free'
-	   end as AppType,
-       avg(user_rating) as AvgRating
+	end as AppType,
+        avg(user_rating) as AvgRating
 from AppleStore
 group by AppType
 
@@ -175,7 +175,7 @@ We can see that on an average, the rating of paid apps os slightly higher than f
 ```
 
 SELECT CASE
-			when lang_num < 10 then 'Less Than 10 Languages'
+	    when lang_num < 10 then 'Less Than 10 Languages'
             when lang_num between 10 and 30 then '10 To 30 Languages'
             else 'More Than 30 Languages'
        END as LanguageBucket,
@@ -196,7 +196,6 @@ We can see that the apps with 10-30 languages have higher average user rating.
 
 ```
 
-
 select prime_genre, avg(user_rating) as Avg_Rating
 from AppleStore
 group by prime_genre
@@ -216,7 +215,7 @@ This means that app developers have good opportunity to build an app in this spa
 ```
 
 SELECT case
-			when length(b.app_desc) < 500 then 'Short'
+	    when length(b.app_desc) < 500 then 'Short'
             when length(b.app_desc) BETWEEN 500 and 1000 then 'Medium'
             else 'Long'
        end as description_length_bucket,
@@ -243,20 +242,20 @@ We can see that the longer the description, the better is the user rating.
 ```
 
 SELECT
-		prime_genre,
+	prime_genre,
         track_name,
         user_rating
 FROM (
-  		select
-  		prime_genre,
+	select
+	prime_genre,
         track_name,
         user_rating,
         RANK() OVER(PARTITION BY prime_genre order by user_rating DESC, rating_count_tot DESC) as Rank
-  		from 
-  		AppleStore 
-   ) as a
-   WHERE 
-   		a.Rank = 1
+from 
+	AppleStore 
+     )  as a
+WHERE 
+	a.Rank = 1
 
 ```
 **Output:-**
@@ -269,12 +268,12 @@ Shows all the apps with highest rating in every genre. App developers can build 
 
 ## Final Recommendations for the client:-
 
-1)Users who pay for an app have higher chances of perceiving it of value, leading it to better ratings. Our client should charge a certain amount for the app.
-2)Apps supporting between 10 and 30 languages have better ratings. Our Client should choose the right languages for the app.
-3)User needs are not being met in the categories like finance and books because exixting apps have poor ratings. This can mean a market opportunity to create better app for market oenetration.
-4)Apps with longer description have better ratings. Users appreciate having a clear underdtanding of the app's features before they download it. A carefully crafted description can increase customer satisfaction and result in better app ratings.
-5)Avg rating is 3.5 and client should aim for a rating above it.
-5)Games and entertainment have a very high volume of apps suggesting that the market may be saturated. Entering these spaces might be challenging due to high competition however these apps might also have high user demand.
+- Users who pay for an app have higher chances of perceiving it of value, leading it to better ratings. Our client should charge a certain amount for the app.
+- Apps supporting between 10 and 30 languages have better ratings. Our Client should choose the right languages for the app.
+- User needs are not being met in the categories like finance and books because exixting apps have poor ratings. This can mean a market opportunity to create better app for market oenetration.
+-Apps with longer description have better ratings. Users appreciate having a clear underdtanding of the app's features before they download it. A carefully crafted description can increase customer satisfaction and result in better app ratings.
+- Avg rating is 3.5 and client should aim for a rating above it.
+- Games and entertainment have a very high volume of apps suggesting that the market may be saturated. Entering these spaces might be challenging due to high competition however these apps might also have high user demand.
 
 
 
